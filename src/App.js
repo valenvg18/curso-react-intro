@@ -20,7 +20,7 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('');
 
   //Estados Derivados
-  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
 
   const searchedTodos = todos.filter(
@@ -31,7 +31,26 @@ function App() {
     }
   );
 
-  console.log('Los usuarios buscan Todos de ' + searchValue);
+  // console.log('Los usuarios buscan Todos de ' + searchValue);
+
+  const completeTodo = (text) => {
+    const newTodos = [...todos]; //copia del estado del array
+    //Identificador unico de los elementos del array
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text) => {
+    const newTodos = [...todos]; 
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
 
   return (
     <>
@@ -51,6 +70,8 @@ function App() {
           key={todo.text} 
           text={todo.text} 
           completed = {todo.completed}
+          onCompleted={() => completeTodo(todo.text)}
+          onDelete={() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
