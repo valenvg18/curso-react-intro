@@ -2,7 +2,7 @@
     background: papayawhip;
     border-radius: 2px;
     border: 2px solid rgb(222, 180, 111);
-    margin: 0 24px;
+    margin: 0 24px 24px ;
     height: 48px;
     width: calc(100% - 62px);
     font-size: 20px;

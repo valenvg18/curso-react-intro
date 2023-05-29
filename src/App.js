@@ -10,18 +10,28 @@ const defaultTodos = [
   { text: 'Tomar curso de intro a React.js', completed: false },
   { text: 'Estudiar ingles para la entrevista', completed: false },
   { text: 'Estudiar conceptos basicos de Js y React', completed: true },
+  { text: 'Yo soy capaz de pasar la entrevista', completed: true },
 ];
 
 function App() {
 
+  const [todos, setTodos] = React.useState(defaultTodos);
+
   const [searchValue, setSearchValue] = React.useState('');
+
+  //Estados Derivados
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const totalTodos = todos.length;
 
   console.log('Los usuarios buscan Todos de ' + searchValue);
 
   return (
     <>
 
-      <TodoCounter completed={16} total={25} />
+      <TodoCounter 
+      completed={completedTodos} 
+      total={totalTodos} 
+      />
       <TodoSearch 
         searchValue = {searchValue}
         setSearchValue={setSearchValue}
