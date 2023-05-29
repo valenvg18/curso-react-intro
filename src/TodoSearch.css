@@ -1,0 +1,23 @@
+.TodoSearch {
+    background: papayawhip;
+    border-radius: 2px;
+    border: 2px solid rgb(222, 180, 111);
+    margin: 0 24px;
+    height: 48px;
+    width: calc(100% - 62px);
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Handlee';
+    color: black;
+    box-shadow: 0px 5px 15px grey;
+}
+
+.TodoSearch::placeholder {
+    color: grey;
+    font-family: 'Handlee';
+    /* font-weight: 400; */
+}
+
+.TodoSearch:focus {
+    outline-color: rgb(43, 211, 183);
+}
